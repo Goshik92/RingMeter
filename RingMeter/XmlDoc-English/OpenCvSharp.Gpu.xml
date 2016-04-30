@@ -1,0 +1,936 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenCvSharp.Gpu</name>
+    </assembly>
+    <members>
+        <member name="T:OpenCvSharp.Gpu.DescriptorFormat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.DescriptorFormat.RowByRow">
+            <summary>
+            
+            [HOGDescriptor::DESCR_FORMAT_ROW_BY_ROW]
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.DescriptorFormat.ColByCol">
+            <summary>
+            
+            [HOGDescriptor::DESCR_FORMAT_COL_BY_COL]
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.Gpu.GpuMat">
+            <summary>
+            Smart pointer for GPU memory with reference counting. Its interface is mostly similar with cv::Mat.
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.GpuMat.SizeOf">
+            <summary>
+            sizeof(GpuMat)
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.GpuMat._disposed">
+            <summary>
+            Track whether Dispose has been called
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#cctor">
+            <summary>
+            static constructor
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(System.Int32,System.Int32,OpenCvSharp.MatrixType)">
+            <summary>
+            
+            </summary>
+            <param name="rows"></param>
+            <param name="cols"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(System.Int32,System.Int32,OpenCvSharp.MatrixType,System.IntPtr,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="rows"></param>
+            <param name="cols"></param>
+            <param name="type"></param>
+            <param name="data"></param>
+            <param name="step"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.CPlusPlus.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.CvSize,OpenCvSharp.MatrixType)">
+            <summary>
+            
+            </summary>
+            <param name="size"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.CvSize,OpenCvSharp.MatrixType,System.IntPtr,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="size"></param>
+            <param name="type"></param>
+            <param name="data"></param>
+            <param name="step"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(System.Int32,System.Int32,OpenCvSharp.MatrixType,OpenCvSharp.CvScalar)">
+            <summary>
+            
+            </summary>
+            <param name="rows"></param>
+            <param name="cols"></param>
+            <param name="type"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.CvSlice,OpenCvSharp.CvSlice)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+            <param name="rowRange"></param>
+            <param name="colRange"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.CvRect)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+            <param name="roi"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.#ctor(OpenCvSharp.CvSize,OpenCvSharp.MatrixType,OpenCvSharp.CvScalar)">
+            <summary>
+            
+            </summary>
+            <param name="size"></param>
+            <param name="type"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Release">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_OnesComplement(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            Unary bitwise complement operator
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_BitwiseAnd(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            Binary  bitwise AND operator
+            </summary>
+            <param name="src1"></param>
+            <param name="src2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_BitwiseOr(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            Binary  bitwise OR operator
+            </summary>
+            <param name="src1"></param>
+            <param name="src2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_ExclusiveOr(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            Binary  bitwise XOR operator
+            </summary>
+            <param name="src1"></param>
+            <param name="src2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_Explicit(OpenCvSharp.CPlusPlus.Mat)~OpenCvSharp.Gpu.GpuMat">
+            <summary>
+            converts header to CvMat; no data is copied
+            </summary>
+            <param name="mat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.op_Implicit(OpenCvSharp.Gpu.GpuMat)~OpenCvSharp.CPlusPlus.Mat">
+            <summary>
+            converts header to IplImage; no data is copied
+            </summary>
+            <param name="gpumat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Row(System.Int32)">
+            <summary>
+            returns a new matrix header for the specified row
+            </summary>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Col(System.Int32)">
+            <summary>
+            returns a new matrix header for the specified column
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.RowRange(System.Int32,System.Int32)">
+            <summary>
+            returns a new matrix header for the specified row span
+            </summary>
+            <param name="startrow"></param>
+            <param name="endrow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.RowRange(OpenCvSharp.CvSlice)">
+            <summary>
+            returns a new matrix header for the specified row span
+            </summary>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.ColRange(System.Int32,System.Int32)">
+            <summary>
+            returns a new matrix header for the specified column span
+            </summary>
+            <param name="startcol"></param>
+            <param name="endcol"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.ColRange(OpenCvSharp.CvSlice)">
+            <summary>
+            returns a new matrix header for the specified column span
+            </summary>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Clone">
+            <summary>
+            returns deep copy of the matrix, i.e. the data is copied
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.CopyTo(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            copies those matrix elements to "m"
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.CopyTo(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            copies those matrix elements to "m" that are marked with non-zero mask elements.
+            </summary>
+            <param name="m"></param>
+            <param name="mask"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.ConvertTo(OpenCvSharp.CPlusPlus.Mat,OpenCvSharp.MatrixType,System.Double,System.Double)">
+            <summary>
+            converts matrix to another datatype with optional scalng. See cvConvertScale.
+            </summary>
+            <param name="dst"></param>
+            <param name="rtype"></param>
+            <param name="alpha"></param>
+            <param name="beta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.AssignTo(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.AssignTo(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.MatrixType)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.SetTo(OpenCvSharp.CvScalar,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            sets some of the matrix elements to s, according to the mask
+            </summary>
+            <param name="s"></param>
+            <param name="mask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Reshape(System.Int32,System.Int32)">
+            <summary>
+            creates alternative matrix header for the same data, with different
+            number of channels and/or different number of rows. see cvReshape.
+            </summary>
+            <param name="cn"></param>
+            <param name="rows"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Create(System.Int32,System.Int32,OpenCvSharp.MatrixType)">
+            <summary>
+            allocates new matrix data unless the matrix already has specified size and type.
+            previous data is unreferenced if needed.
+            </summary>
+            <param name="rows"></param>
+            <param name="cols"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Create(OpenCvSharp.CvSize,OpenCvSharp.MatrixType)">
+            <summary>
+            allocates new matrix data unless the matrix already has specified size and type.
+            previous data is unreferenced if needed.
+            </summary>
+            <param name="size"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Swap(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            swaps with other smart pointer
+            </summary>
+            <param name="mat"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.LocateROI(OpenCvSharp.CvSize@,OpenCvSharp.CvPoint@)">
+            <summary>
+            locates matrix header within a parent matrix.
+            </summary>
+            <param name="wholeSize"></param>
+            <param name="ofs"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.AdjustROI(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            moves/resizes the current matrix ROI inside the parent matrix.
+            </summary>
+            <param name="dtop"></param>
+            <param name="dbottom"></param>
+            <param name="dleft"></param>
+            <param name="dright"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.T">
+            <summary>
+            matrix transposition by means of matrix expressions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.IsContinuous">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.At``1(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="y"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.At``1(OpenCvSharp.CvPoint)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Get``1(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="y"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Set``1(System.Int32,System.Int32,``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="y"></param>
+            <param name="x"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuMat.Ptr(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Item(OpenCvSharp.CvRect)">
+            <summary>
+            
+            </summary>
+            <param name="roi"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Item(OpenCvSharp.CvSlice,OpenCvSharp.CvSlice)">
+            <summary>
+            
+            </summary>
+            <param name="rowRange"></param>
+            <param name="colRange"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Item(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="y"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Flags">
+            <summary>
+            includes several bit-fields: 
+             1.the magic signature 
+             2.continuity flag 
+             3.depth 
+             4.number of channels
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Rows">
+            <summary>
+            the number of rows
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Cols">
+            <summary>
+            the number of columns
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Step">
+            <summary>
+            a distance between successive rows in bytes; includes the gap if any
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Data">
+            <summary>
+            pointer to the data
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.RefCount">
+            <summary>
+            pointer to the reference counter;
+            when matrix points to user-allocated data, the pointer is NULL
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.DataStart">
+            <summary>
+            helper fields used in locateROI and adjustROI
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.DataEnd">
+            <summary>
+            helper fields used in locateROI and adjustROI
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.ElemSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.ElemSize1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Depth">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Channels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Bpp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuMat.Size">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.Gpu.GpuInvoke">
+            <summary>
+            P/Invoke methods of OpenCV C++ GPU interface
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.GpuInvoke.DllExtern">
+            <summary>
+            DLL file name
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuInvoke.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.GpuInvoke.TryPInvoke">
+            <summary>
+            Checks whether PInvoke functions can be called
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.GpuInvoke.PInvokeSucceeded">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.Gpu.HOGDescriptor">
+            <summary>
+            HOG (Histogram-of-Oriented-Gradients) Descriptor and Object Detector
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor.DEFAULT_WIN_SIGMA">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor.DEFAULT_NLEVELS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor.SizeOf">
+            <summary>
+            sizeof(HOGDescriptor) 
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor.DefaultPeopleDetector">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor._svmDetector">
+            <summary>
+            setSVMDetector parameter vector
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.Gpu.HOGDescriptor._disposed">
+            <summary>
+            Track whether Dispose has been called
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+            <param name="nbins"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Int32,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+            <param name="nbins"></param>
+            <param name="win_sigma"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Int32,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+            <param name="nbins"></param>
+            <param name="win_sigma"></param>
+            <param name="threshold_L2hys"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Int32,System.Double,System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+            <param name="nbins"></param>
+            <param name="win_sigma"></param>
+            <param name="threshold_L2hys"></param>
+            <param name="gamma_correction"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Int32,System.Double,System.Double,System.Boolean,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="win_size"></param>
+            <param name="block_size"></param>
+            <param name="block_stride"></param>
+            <param name="cell_size"></param>
+            <param name="nbins"></param>
+            <param name="win_sigma"></param>
+            <param name="threshold_L2hys"></param>
+            <param name="gamma_correction"></param>
+            <param name="nlevels"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.#ctor(System.IntPtr)">
+            <summary>
+            Initializes from pointer
+            </summary>
+            <param name="ptr">class HOGDescriptor*</param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.GetDefaultPeopleDetector">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.SetSVMDetector(System.Single[])">
+            <summary>
+            
+            </summary>
+            <param name="svmdetector"></param>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.GetDescriptorSize">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.Detect(OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.Detect(OpenCvSharp.Gpu.GpuMat,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.Detect(OpenCvSharp.Gpu.GpuMat,System.Double,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.Detect(OpenCvSharp.Gpu.GpuMat,System.Double,OpenCvSharp.CvSize,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <param name="padding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat,System.Double,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat,System.Double,OpenCvSharp.CvSize,OpenCvSharp.CvSize)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <param name="padding"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat,System.Double,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <param name="padding"></param>
+            <param name="scale"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.HOGDescriptor.DetectMultiScale(OpenCvSharp.CPlusPlus.Mat,System.Double,OpenCvSharp.CvSize,OpenCvSharp.CvSize,System.Double,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="img"></param>
+            <param name="hitThreshold"></param>
+            <param name="winStride"></param>
+            <param name="padding"></param>
+            <param name="scale"></param>
+            <param name="groupThreshold"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.WinSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.BlockSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.BlockStride">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.CellSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.Nbins">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.WinSigma">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.ThresholdL2Hys">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.GammaCorrection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.HOGDescriptor.NLevels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.CPlusPlus.StereoBM_GPU">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.CPlusPlus.StereoBM_GPU.SizeOf">
+            <summary>
+            sizeof(StereoBM_GPU)
+            </summary>
+        </member>
+        <member name="F:OpenCvSharp.CPlusPlus.StereoBM_GPU._disposed">
+            <summary>
+            Track whether Dispose has been called
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.#cctor">
+            <summary>
+            static constructor
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            StereoBM_GPU Constructor
+            </summary>
+            <param name="preset"></param>
+            <param name="ndisparities"></param>
+            <param name="winSize"></param>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.Release">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">
+            If disposing equals true, the method has been called directly or indirectly by a user's code. Managed and unmanaged resources can be disposed.
+            If false, the method has been called by the runtime from inside the finalizer and you should not reference other objects. Only unmanaged resources can be disposed.
+            </param>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.CheckIfGpuCallReasonable">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenCvSharp.CPlusPlus.StereoBM_GPU.Run(OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat,OpenCvSharp.Gpu.GpuMat)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="ddisparityisp"></param>
+        </member>
+        <member name="P:OpenCvSharp.CPlusPlus.StereoBM_GPU.Preset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.CPlusPlus.StereoBM_GPU.Ndisp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.CPlusPlus.StereoBM_GPU.WinSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.CPlusPlus.StereoBM_GPU.AvergeTexThreshold">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenCvSharp.Gpu.CvGpu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.CvGpu.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.CvGpu.GetCudaEnabledDeviceCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.CvGpu.GetDevice">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenCvSharp.Gpu.CvGpu.SetDevice(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="device"></param>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.CvGpu.IsEnabled">
+            <summary>
+            Returns whether the library is compiled with Cuda.
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.CvGpu.CudaEnabledDeviceCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenCvSharp.Gpu.CvGpu.Device">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
