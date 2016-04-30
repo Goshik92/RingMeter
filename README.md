@@ -1,0 +1,1 @@
+This OpenCV based program has been designed to measure the internal diameter of rings using a web camera. Before the measurement the system should be calibrated using a checkered picture before the camera.
